@@ -1,0 +1,37 @@
+/***********************/
+PHP Version:8.0.28
+Motor SQL Server 2017
+/**********PROCESO DE INSTALACIÓN************/
+1.Descargar instalador de XAMPP en el siguiente link:
+https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.0.28/xampp-windows-x64-8.0.28-0-VS16-installer.exe/download
+2.Seleccionar solo Apache en las opciones de instalación->Instalar-->Permitir en firewall en caso de que Windows solicite autorización
+3.Descargar SQL Server 2017 Express desde el siguiente link:
+https://www.microsoft.com/es-es/download/details.aspx?id=55994
+4.Instalar con las opciones que vienen por defecto y configurar la clave para el usuario sa, tomar nota de esa contraseña
+5.Descargar e instalar SQL Server Management Studio desde el sigiuente link:
+https://aka.ms/ssmsfullsetup
+6.Copiar archivos .dll(incluidos en repositorio GITHUB) en la ruta de instalación de XAMPP (C:\xampp\php\ext)
+	php_pdo_sqlsrv_80_nts_x64.dll
+	php_pdo_sqlsrv_80_nts_x86.dll
+	php_pdo_sqlsrv_80_ts_x64.dll
+	php_pdo_sqlsrv_80_ts_x86.dll
+7.Ir a inicio-->Escribir "XAMPP Control Panel" y ejecutar
+8. En el módulo Apache, clic en botón Config-->PHP(php.ini)
+9. con ctrl + b buscar la palabra frase "extension=bz2" e inmediatamente abajo pegar lo siguiente:
+extension=php_pdo_sqlsrv_80_nts_x64.dll
+extension=php_pdo_sqlsrv_80_nts_x86.dll
+extension=php_pdo_sqlsrv_80_ts_x64.dll
+extension=php_pdo_sqlsrv_80_ts_x86.dll
+10. Guardar
+11. Mover la carpeta DevTest completa a la ruta C:\xampp\htdocs\
+13. Ejecutar SQL Management studio e ingresar las credenciales del servidor 
+14. Descargar el archivo "SQL/InitialDB_Test.bak" del repositorio
+15. En el arbol de la derecha clic derecho en "Databases"-> Restore Database->Marcar "Device" y seleccionar el archivo "SQL/InitialDB_Test.bak" en los tres puntos (...)->Aceptar
+14.Una vez creada la base de datos, dirigirse al archivo conexion.php y agregar las credenciales del usuario de la base de datos, guardar cambios.
+15. Ir al navegador y dirigirse a localhost/devtest/, si todo es correcto podrá ver el formulario de votación.
+
+
+/******************************/
+Adicional se encuentran los archivos .SQL con los script de creación y poblado de base de datos. Dentro de SQL Management Studio:
+1. Ejecutar CreacionDB_Tablas.sql
+2. Poblado_tablas.sql

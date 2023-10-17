@@ -1,0 +1,33 @@
+
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+}
+.title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-column {
+    width:60%;
+}
+
+.form-column label {
+    display: block;
+    padding: 5px;
+    margin-bottom: 10px; 
+}
+
+.form-column input, select{
+    width: 200%;
+    padding: 5px;
+    margin-top: 10px;
+}
+button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-left: 20%;
+
+}
+
